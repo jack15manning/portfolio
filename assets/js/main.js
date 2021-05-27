@@ -64,6 +64,12 @@ jQuery(document).ready(function($) {
     
     /* Github Calendar - https://github.com/IonicaBizau/github-calendar */
     new GitHubCalendar("#github-graph", "jack15manning", { responsive: true });
+    // Use a proxy
+    GitHubCalendar(".calendar", "your-username", {
+       proxy (username) {
+         return fetch(`https://your-proxy.com/github?user=${username}`)
+       }
+    }).then(r => r.text())
     
     
     /* Github Activity Feed - https://github.com/caseyscarborough/github-activity */
